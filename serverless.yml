@@ -1,0 +1,27 @@
+service: app-lambda-mishu
+
+plugins:
+  - serverless-offline
+
+provider:
+  name: aws
+  runtime: nodejs14.x
+  environment:
+    RUN_MODE: ${env:RUN_MODE}
+    DB_PASSWORD: ${env:DB_PASSWORD}
+    DB_NAME: ${env:DB_NAME}
+    DB_HOST: ${env:DB_HOST}
+    DB_USERNAME: ${env:DB_USERNAME}
+    DB_PORT:  ${env:DB_PORT}
+    JWT_SECRET: ${env:JWT_SECRET}
+
+functions:
+  main:
+    handler: dist/main.lambda.handler
+    events:
+      - http:
+          method: ANY
+          path: /
+      - http:
+          method: ANY
+          path: '{proxy+}'
