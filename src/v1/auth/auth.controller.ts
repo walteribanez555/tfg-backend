@@ -36,14 +36,14 @@ export class AuthController {
   }
 
   @Get('private2')
-  @RoleProtected(ValidRoles.superUser)
+  @RoleProtected(ValidRoles.admin)
   @UseGuards(AuthGuard(), UserRoleGuard)
   privateRoute2(@GetUser() user: User) {
     return user;
   }
 
   @Get('private3')
-  @Auth(ValidRoles.superUser, ValidRoles.admin)
+  @Auth(ValidRoles.admin, ValidRoles.admin)
   privateRoute3(@GetUser() user: User) {
     return user;
   }

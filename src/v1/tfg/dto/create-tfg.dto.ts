@@ -13,5 +13,8 @@ export class CreateTfgDto {
   studentId: string;
 
   @IsUUID()
+  mode: string;
+
+  @IsUUID()
   tutorId: string;
 }

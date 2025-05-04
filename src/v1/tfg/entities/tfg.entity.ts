@@ -5,6 +5,7 @@ import { Student } from 'src/v1/student/entities/student.entity';
 import {
   Column,
   Entity,
+  JoinColumn,
   ManyToOne,
   OneToMany,
   PrimaryGeneratedColumn,
@@ -28,6 +29,7 @@ export class Tfg {
   student: Student;
 
   @OneToMany(() => Mode, (mode) => mode.tfg)
+  @JoinColumn({ name: 'modeId' })
   mode: Mode;
 
   @OneToMany(() => Defense, (defense) => defense.tfg)

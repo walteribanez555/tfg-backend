@@ -33,8 +33,6 @@ export class User {
   })
   roles: string[];
 
-
-
   @BeforeInsert()
   checkFieldsBeforeInsert() {
     this.email = this.email.toLowerCase().trim();
