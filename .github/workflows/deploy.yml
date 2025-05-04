@@ -58,7 +58,7 @@ jobs:
           
           for i in $(seq 1 $RETRY_COUNT); do
             aws lambda update-function-code \
-              --function-name arn:aws:lambda:us-east-1:557690620729:function:lambda-webhook-coolfix \
+              --function-name arn:aws:lambda:us-east-1:537757446889:function:lambda-tfg \
               --zip-file fileb://deploy.zip && break
             if [ "$i" -eq "$RETRY_COUNT" ]; then
               echo "Max retries reached. Exiting."
@@ -75,7 +75,7 @@ jobs:
           
           for i in $(seq 1 $RETRY_COUNT); do
             aws lambda update-function-configuration \
-              --function-name arn:aws:lambda:us-east-1:557690620729:function:lambda-webhook-coolfix \
+              --function-name arn:aws:lambda:us-east-1:537757446889:function:lambda-tfg \
               --handler dist/src/main.handler && break
             if [ "$i" -eq "$RETRY_COUNT" ]; then
               echo "Max retries reached. Exiting."
